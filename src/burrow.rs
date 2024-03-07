@@ -1,7 +1,6 @@
 use crate::*;
 
 pub const MIN_BOOSTER_MULTIPLIER: u32 = 10000;
-pub const BOOSTER_DECIMALS: u32 = 18;
 
 pub fn compute_x_booster_amount(
     maximum_staking_duration_sec: u32, 
@@ -10,6 +9,7 @@ pub fn compute_x_booster_amount(
     amount: u128, 
     duration_ns: u64
 ) -> u128 {
+    let amount = amount * 10u128.pow(18);
     amount
         + u128_ratio(
             amount,
