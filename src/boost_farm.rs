@@ -52,5 +52,5 @@ pub fn boost_farm_compute_max_locking_multiplier(
         target - capital,
         u128::from(to_nano(maximum_locking_duration_sec)) * MIN_LOCKING_REWARD_RATIO as u128,
         u128::from(to_nano(duration_sec)) * capital
-    ) + u128::from(MIN_BOOSTER_MULTIPLIER)
+    ) + u128::from(MIN_LOCKING_REWARD_RATIO)
 }
