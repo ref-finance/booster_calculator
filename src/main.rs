@@ -19,17 +19,23 @@ fn main() {
 
         // println!("{}", compute_x_booster_multiplier_at_maximum_staking_duration(7776000, 2592000, to_nano(2592000 * 3), 100, 300));
         // println!("{}", compute_x_booster_amount(7776000, 2592000, 30000, 100, to_nano(2592000 * 3)));
-
-        let log_base: u128 = calc_log_base(10_000, 1000, 1030);
+        // 1M => 1K
+        let log_base: u128 = calc_log_base(3_000, 1000, 1300);
         println!("log_base set to: {}", log_base);
-        println!("extra shares per 1000 shares: [10K booster] {}", calc_extra_shares(log_base, 10_000, 1000));
-        println!("extra shares per 1000 shares: [100K booster] {}", calc_extra_shares(log_base, 100_000, 1000));
-        println!("extra shares per 1000 shares: [1M booster] {}", calc_extra_shares(log_base, 1_000_000, 1000));
-        println!("extra shares per 1000 shares: [3M booster] {}", calc_extra_shares(log_base, 3_000_000, 1000));
-        println!("extra shares per 1000 shares: [10M booster] {}", calc_extra_shares(log_base, 10_000_000, 1000));
+        println!("extra shares per 1000 shares: [1K   booster lock 3 months] {}", calc_extra_shares(log_base, 3, 1000));
+        println!("extra shares per 1000 shares: [10K  booster lock 3 months] {}", calc_extra_shares(log_base, 30, 1000));
+        println!("extra shares per 1000 shares: [100K booster lock 3 months] {}", calc_extra_shares(log_base, 300, 1000));
+        println!("extra shares per 1000 shares: [1M   booster lock 3 months] {}", calc_extra_shares(log_base, 3_000, 1000));
+        println!("extra shares per 1000 shares: [10M  booster lock 3 months] {}", calc_extra_shares(log_base, 30_000, 1000));
+        println!("extra shares per 1000 shares: [100M booster lock 3 months] {}", calc_extra_shares(log_base, 300_000, 1000));
         let log_base: u128 = u128::MAX;
-        println!("[burrow]log_base set to: {}", log_base);
-        println!("[burrow]extra shares per 1000 shares: [10K booster] {}", calc_extra_shares(log_base, 10_000, 1000));
+        println!("[burrow]log_base set to MAX: {}", log_base);
+        println!("extra shares per 1000 shares: [1K   booster lock 3 months] {}", calc_extra_shares(log_base, 3, 1000));
+        println!("extra shares per 1000 shares: [10K  booster lock 3 months] {}", calc_extra_shares(log_base, 30, 1000));
+        println!("extra shares per 1000 shares: [100K booster lock 3 months] {}", calc_extra_shares(log_base, 300, 1000));
+        println!("extra shares per 1000 shares: [1M   booster lock 3 months] {}", calc_extra_shares(log_base, 3_000, 1000));
+        println!("extra shares per 1000 shares: [10M  booster lock 3 months] {}", calc_extra_shares(log_base, 30_000, 1000));
+        println!("extra shares per 1000 shares: [100M booster lock 3 months] {}", calc_extra_shares(log_base, 300_000, 1000));
     }
 
     // boost_farm
@@ -40,12 +46,23 @@ fn main() {
         // println!("{}", boost_farm_calc_log_base(300_0000, 1000, 2000));
         // println!("{}", boost_farm_calc_extra_shares(3000000, 300_0000, 1000));
 
-        let log_base: u32 = boost_farm_calc_log_base(300_0000, 1000, 2000);
+        let log_base: u32 = boost_farm_calc_log_base(3_000, 100_00, 140_00);
         println!("[boost_farm]log_base set to: {}", log_base);
-        println!("[boost_farm]extra shares per 1000 shares: [3M booster] {}", boost_farm_calc_extra_shares(log_base, 3_000_000, 1000));
+        println!("[boost_farm]extra shares per 10k shares: [1K   booster lock 3 months] {}", boost_farm_calc_extra_shares(log_base, 3, 10000));
+        println!("[boost_farm]extra shares per 10k shares: [10K  booster lock 3 months] {}", boost_farm_calc_extra_shares(log_base, 30, 10000));
+        println!("[boost_farm]extra shares per 10k shares: [100K booster lock 3 months] {}", boost_farm_calc_extra_shares(log_base, 300, 10000));
+        println!("[boost_farm]extra shares per 10k shares: [1M   booster lock 3 months] {}", boost_farm_calc_extra_shares(log_base, 3000, 10000));
+        println!("[boost_farm]extra shares per 10k shares: [10M  booster lock 3 months] {}", boost_farm_calc_extra_shares(log_base, 30000, 10000));
+        println!("[boost_farm]extra shares per 10k shares: [100M booster lock 3 months] {}", boost_farm_calc_extra_shares(log_base, 300000, 10000));
+
         let log_base: u32 = u32::MAX;
-        println!("[boost_farm]log_base set to: {}", log_base);
-        println!("[boost_farm]extra shares per 1000 shares: [3M booster] {}", boost_farm_calc_extra_shares(log_base, 3_000_000, 1000));
+        println!("[boost_farm]log_base set to MAX: {}", log_base);
+        println!("[boost_farm]extra shares per 10k shares: [1K   booster lock 3 months] {}", boost_farm_calc_extra_shares(log_base, 3, 10000));
+        println!("[boost_farm]extra shares per 10k shares: [10K  booster lock 3 months] {}", boost_farm_calc_extra_shares(log_base, 30, 10000));
+        println!("[boost_farm]extra shares per 10k shares: [100K booster lock 3 months] {}", boost_farm_calc_extra_shares(log_base, 300, 10000));
+        println!("[boost_farm]extra shares per 10k shares: [1M   booster lock 3 months] {}", boost_farm_calc_extra_shares(log_base, 3000, 10000));
+        println!("[boost_farm]extra shares per 10k shares: [10M  booster lock 3 months] {}", boost_farm_calc_extra_shares(log_base, 30000, 10000));
+        println!("[boost_farm]extra shares per 10k shares: [100M booster lock 3 months] {}", boost_farm_calc_extra_shares(log_base, 300000, 10000));
 
     }
 }
