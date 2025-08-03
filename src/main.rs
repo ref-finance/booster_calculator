@@ -19,6 +19,18 @@ fn main() {
 
         // println!("{}", compute_x_booster_multiplier_at_maximum_staking_duration(7776000, 2592000, to_nano(2592000 * 3), 100, 300));
         // println!("{}", compute_x_booster_amount(7776000, 2592000, 30000, 100, to_nano(2592000 * 3)));
+        
+        // supress factor = 500, so 1K => 2
+        let log_base: u128 = calc_log_base(3000, 1000, 1300);
+        println!("xRhea log_base set to: {}", log_base);
+        // 389407383983000719942528008192
+        // math.log(1500000/500, 389407383983.00072) = math.log(3000, 389407383983.00072) = 0.3
+        println!("extra shares per 1000 shares: [500 lock 3 months] {}", calc_extra_shares(log_base, 3, 1000));
+        println!("extra shares per 1000 shares: [5K  lock 3 months] {}", calc_extra_shares(log_base, 30, 1000));
+        println!("extra shares per 1000 shares: [50K lock 3 months] {}", calc_extra_shares(log_base, 300, 1000));
+        println!("extra shares per 1000 shares: [500K lock 3 months] {}", calc_extra_shares(log_base, 3_000, 1000));
+        println!("extra shares per 1000 shares: [5M  lock 3 months] {}", calc_extra_shares(log_base, 30_000, 1000));
+        println!("extra shares per 1000 shares: [50M lock 3 months] {}", calc_extra_shares(log_base, 300_000, 1000));
         // 1M => 1K
         let log_base: u128 = calc_log_base(3_000, 1000, 1300);
         println!("log_base set to: {}", log_base);

@@ -45,6 +45,7 @@ pub fn calc_extra_shares(booster_log_base: u128, booster_balance: u128, shares: 
     let booster_base = 10u128.pow(18);
     let log_base =
             (booster_log_base as f64) / (booster_base as f64);
+    // println!("float log_base: {}", log_base);
     ((shares as f64)
         * ((booster_balance as f64) / (booster_base as f64)).log(log_base))
         as u128
